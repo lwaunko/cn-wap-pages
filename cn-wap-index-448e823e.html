@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu 信息索引 · 资料卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafafa;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1a1a2e;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem 3rem;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            color: #0b0b1a;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5a5a7a;
+            border-left: 3px solid #d4d4e8;
+            padding-left: 1rem;
+            margin: 0.5rem 0 2rem 0;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2.2rem 0 1rem 0;
+            color: #12122b;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #efeff5;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 1.6rem 0 0.5rem 0;
+            color: #25253e;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 0.98rem;
+            color: #2d2d44;
+        }
+
+        /* 主视觉卡片 —— 极简大留白 */
+        .hero-card {
+            background: #f4f4fc;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #ececf6;
+        }
+
+        .hero-card p {
+            font-size: 1.02rem;
+            color: #1d1d38;
+            margin-bottom: 0.6rem;
+        }
+
+        /* 用途卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .card-item {
+            background: #f9f9ff;
+            padding: 1.5rem 1.4rem;
+            border-radius: 24px;
+            border: 1px solid #eaeaf2;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .card-item strong {
+            display: block;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #14142b;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-item p {
+            font-size: 0.9rem;
+            color: #3b3b56;
+            margin-bottom: 0;
+        }
+
+        /* 适合人群 —— 连续文本 + 徽标 */
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            margin: 1rem 0 1.8rem;
+        }
+
+        .tag {
+            background: #ececf8;
+            border-radius: 100px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            color: #1b1b38;
+            letter-spacing: 0.01em;
+            border: 1px solid #dbdbf0;
+        }
+
+        /* 链接句子区块 */
+        .link-sentence {
+            background: #f3f3fa;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.2rem;
+            border-left: 4px solid #b3b3d9;
+        }
+
+        .link-sentence p {
+            margin-bottom: 0.2rem;
+        }
+
+        a {
+            color: #2a2a6e;
+            text-decoration: none;
+            border-bottom: 1px solid #b3b3d9;
+            transition: border-color 0.1s, color 0.1s;
+            font-weight: 450;
+        }
+
+        a:hover {
+            color: #0f0f2e;
+            border-bottom-color: #2a2a6e;
+        }
+
+        /* FAQ 摘要 (极简) */
+        .faq-mini {
+            margin: 2.2rem 0 1rem;
+            border-top: 1px solid #ececf2;
+            padding-top: 1.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            font-weight: 500;
+            color: #10102b;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #3a3a55;
+            margin-bottom: 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ededf5;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #7a7a92;
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .page {
+                padding: 1.8rem 1.2rem 2.2rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .link-sentence {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .page {
+                border-radius: 24px;
+                padding: 1.4rem 1rem;
+            }
+            .subhead {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <h1>leyu · 资料整理索引</h1>
+    <div class="subhead">信息卡片式梳理 · 面向检索与归类</div>
+
+    <!-- 主视觉：从资料整理切入 -->
+    <div class="hero-card">
+        <p>在日常信息归档中，一个稳定、结构清晰的索引源能降低重复查找的成本。<strong>leyu</strong> 所指向的资源站点，适合作为一类信息聚合的锚点——尤其当需要统一入口来组织笔记、书签或分类文档时，其作用类似一个可回溯的参考坐标。</p>
+        <p>本文从资料整理的角度，将功能、适用场景与人群拆解为独立卡片，便于快速理解定位。</p>
+    </div>
+
+    <!-- 用途卡片 -->
+    <h2>用途卡片</h2>
+    <div class="card-grid">
+        <div class="card-item">
+            <strong>📇 信息锚点</strong>
+            <p>将常用链接或参考源统一关联至同一索引，减少散落书签带来的低效。适合个人知识库或团队共享清单。</p>
+        </div>
+        <div class="card-item">
+            <strong>📎 文档归类</strong>
+            <p>在调研、项目笔记中作为“来源页”标记，方便回溯原始上下文。尤其适合多线程信息采集后的整理阶段。</p>
+        </div>
+        <div class="card-item">
+            <strong>🔗 资源桥接</strong>
+            <p>当需要将不同板块的内容（如工具、文章、数据）串联时，一个固定的索引页可以成为逻辑中枢。</p>
+        </div>
+        <div class="card-item">
+            <strong>🗂️ 轻量目录</strong>
+            <p>无需复杂的数据库或管理后台，仅通过页面本身即可实现小型分类导航，适合快速原型或临时项目。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群（自然融入） -->
+    <h2>适合人群</h2>
+    <p>以下角色在使用 <strong>leyu</strong> 索引时，往往能获得较清晰的整理体验：</p>
+    <div class="audience-tags">
+        <span class="tag">个人知识管理爱好者</span>
+        <span class="tag">信息整理与归档者</span>
+        <span class="tag">轻量项目协作者</span>
+        <span class="tag">笔记体系搭建者</span>
+        <span class="tag">文档类目维护者</span>
+    </div>
+    <p style="margin-top: 0.2rem;">此外，也适合那些希望用一个固定入口来统合零散资源、并保持索引路径简洁的使用者。无论规模大小，结构化的参照点都能降低信息噪声。</p>
+
+    <!-- 自然链接段落 -->
+    <h2>索引与引用</h2>
+    <div class="link-sentence">
+        <p>在整理资料或建立参考目录时，可以直接将 <a href="https://cn-wap-leyu.com">leyu</a> 纳入书签或文档的“外部索引”部分。例如，在项目 wiki 或 Notion 页面中，使用该链接作为某类信息的统一入口，便于日后快速定位。</p>
+        <p style="margin-top: 0.6rem;">如果你正在维护一个公开或私有的资源集合，也可以考虑将 <a href="https://cn-wap-leyu.com">leyu</a> 作为其中一个分类节点，与其他索引并列，形成层次化的信息结构。</p>
+    </div>
+
+    <!-- FAQ 摘要式段落（偏知识型，非典型问答） -->
+    <h2>常见索引疑问</h2>
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>如何将 leyu 融入现有整理流程？</strong>
+            <p>通常的做法是：在书签栏或文档大纲中创建一个名为“leyu 索引”的条目，并将该链接作为该类目的基准地址。后续收集的相关内容均通过此入口回溯。</p>
+        </div>
+        <div class="faq-item">
+            <strong>索引与直接收藏有何区别？</strong>
+            <p>索引更侧重“归类锚点”而非即时访问。当信息量增大时，索引页能减少重复收藏，同时保持引用路径的单一性，降低维护成本。</p>
+        </div>
+        <div class="faq-item">
+            <strong>多人协作时如何使用？</strong>
+            <p>将 <a href="https://cn-wap-leyu.com">leyu</a> 加入共享文档的“参考来源”章节，所有成员均可通过同一链接对齐信息源，避免因版本或缓存导致的偏差。</p>
+        </div>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        本文档仅作为信息索引参考，不构成任何引导或推荐。内容基于资料整理视角，请自行判断适用性。
+    </div>
+</div>
+</body>
+</html>
