@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 – 稳定的内容入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9e7 0%, #fce4d6 40%, #ffedd5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #3d2c2a;
+        }
+
+        .page-wrapper {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(180, 100, 60, 0.08);
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            color: #9a5a3a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5a3e35;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #c7794b;
+            color: #7b4a31;
+        }
+
+        /* 核心卡片 */
+        .card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 12px 30px rgba(150, 80, 40, 0.10);
+            margin-bottom: 2.8rem;
+            transition: box-shadow 0.2s;
+            border: 1px solid rgba(230, 190, 160, 0.3);
+        }
+
+        .card-hero {
+            text-align: center;
+            padding: 3.5rem 2.8rem;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #4f2f24;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(120deg, #b67a4e, #8f5a38);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #6a4e40;
+            max-width: 600px;
+            margin: 0.8rem auto 2rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #4d382f;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-text a {
+            color: #b0673a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1.5px dotted #dba07a;
+            transition: border-bottom 0.2s;
+        }
+
+        .intro-text a:hover {
+            border-bottom: 1.5px solid #a55d33;
+        }
+
+        /* 场景三模块 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .scene-card {
+            background: #fffffffa;
+            border-radius: 28px;
+            padding: 2rem 1.8rem 2.2rem;
+            box-shadow: 0 6px 18px rgba(140, 80, 50, 0.08);
+            border: 1px solid #f0dbce;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(130, 70, 40, 0.12);
+        }
+
+        .scene-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #4f2f24;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-desc {
+            color: #5a4036;
+            font-size: 0.98rem;
+            margin-bottom: 1rem;
+        }
+
+        .scene-tag {
+            display: inline-block;
+            background: #f2e3da;
+            color: #6f4b38;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* 常见说明区域 */
+        .faq-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-item {
+            flex: 1 1 280px;
+            background: #fffffffa;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #f0dbce;
+            box-shadow: 0 4px 12px rgba(150, 80, 40, 0.05);
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #4f2f24;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .faq-q::before {
+            content: "▹";
+            color: #c7794b;
+            font-size: 1.1rem;
+        }
+
+        .faq-a {
+            color: #5a4036;
+            font-size: 0.95rem;
+            padding-left: 1.3rem;
+        }
+
+        .faq-a a {
+            color: #b0673a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #dba07a;
+        }
+
+        .faq-a a:hover {
+            border-bottom: 1px solid #a55d33;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            padding: 1.2rem 0 0.5rem;
+            color: #7a5e4e;
+            font-size: 0.9rem;
+            border-top: 1px solid #ebd5c8;
+            margin-top: 1rem;
+        }
+
+        .footer-note a {
+            color: #7a4f37;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式 */
+        @media (max-width: 860px) {
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .card {
+                padding: 2rem 1.8rem;
+            }
+            .card-hero {
+                padding: 2.5rem 1.5rem;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+            }
+        }
+
+        @media (max-width: 580px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-nav {
+                padding: 0.8rem 1.2rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+            body {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="nav-brand">MK体育</div>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#">动态</a>
+        </div>
+    </nav>
+
+    <!-- 核心介绍 hero -->
+    <div class="card card-hero">
+        <h1 class="hero-title">进入 <span>MK体育</span> 的稳定入口</h1>
+        <p class="hero-sub">页面即入口 · 简洁而可靠的内容说明</p>
+        <p class="intro-text">
+            无论你从哪个路径找到这里，<a href="https://wapindex-mk.com">MK体育</a> 都保持一致的呈现与响应。
+            这是一个轻量导航页面，不堆砌信息，只梳理最常用的内容入口与使用场景。
+            我们对链接的稳定性做了基础说明，让你在访问前就能了解大致面貌。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <div class="scene-icon">🏟️</div>
+            <div class="scene-title">日常浏览</div>
+            <div class="scene-desc">
+                打开页面即见核心信息，无需反复跳转。从导航到模块，均围绕常用内容展开。
+                如果你之前用过类似服务，会发现这里的布局更偏向直接展示。
+            </div>
+            <span class="scene-tag">一键触达</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">📋</div>
+            <div class="scene-title">信息参考</div>
+            <div class="scene-desc">
+                无论是了解功能分布还是确认访问方式，这里都提供简明说明。
+                <a href="https://wapindex-mk.com">MK体育</a> 的页面结构经过梳理，重点内容均有独立位置。
+            </div>
+            <span class="scene-tag">清晰分类</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">🔗</div>
+            <div class="scene-title">稳定入口</div>
+            <div class="scene-desc">
+                链接长期有效，页面结构保持统一。你可以把这里当作一个固定的起始点，
+                随时通过主链接 <a href="https://wapindex-mk.com">MK体育</a> 获得一致体验。
+            </div>
+            <span class="scene-tag">持续可用</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ摘要) -->
+    <div class="faq-section">
+        <div class="faq-item">
+            <div class="faq-q">这个页面是做什么的？</div>
+            <div class="faq-a">
+                一个轻量导航介绍页，主要展示 <a href="https://wapindex-mk.com">MK体育</a> 的稳定访问方式与内容分类。
+                不收集信息，不要求注册，仅作为说明参考。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何快速到达主站？</div>
+            <div class="faq-a">
+                页面中多次出现的 <a href="https://wapindex-mk.com">MK体育</a> 链接均可直接点击，
+                或通过浏览器保存书签。所有链接指向同一个稳定地址。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容会频繁变化吗？</div>
+            <div class="faq-a">
+                页面结构保持稳定，仅在必要时做细微调整。主站 <a href="https://wapindex-mk.com">MK体育</a> 的入口不变，
+                你可以放心引用或收藏。
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>MK体育 · 页面说明 ｜ 链接长期有效 ｜ 如有疑问请参考常见说明</span><br>
+        <span style="opacity: 0.7;">© 提供稳定入口与内容概述 · 非官方声明</span>
+    </div>
+
+</div>
+</body>
+</html>
