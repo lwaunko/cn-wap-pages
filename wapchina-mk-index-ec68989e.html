@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 – 站点介绍与可信说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f2f8fa;
+      color: #1e2a33;
+      line-height: 1.6;
+      padding: 0 16px;
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    /* hero 区 */
+    .hero {
+      background: linear-gradient(145deg, #0f4c5c 0%, #1e7a8c 100%);
+      border-radius: 28px;
+      padding: 48px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 12px 28px rgba(13, 67, 79, 0.25);
+      color: #e4f2f5;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+    .hero .sub {
+      font-size: 1.15rem;
+      opacity: 0.88;
+      max-width: 620px;
+      margin: 0 auto 10px;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(2px);
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    /* 网格卡片 – 优势 */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0f4c5c;
+      margin: 36px 0 18px;
+      border-left: 6px solid #1e7a8c;
+      padding-left: 18px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px 18px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+      border: 1px solid #daeef3;
+      transition: 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #9ad0db;
+      box-shadow: 0 12px 20px rgba(13, 67, 79, 0.12);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f4c5c;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .card h3 span {
+      display: inline-block;
+      background: #1e7a8c;
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 0.9rem;
+      margin-right: 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2f424b;
+    }
+
+    /* 说明区 — 可信与介绍 */
+    .intro-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 30px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #d3e7ed;
+    }
+    .intro-section p {
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .intro-section a {
+      color: #1a6c7c;
+      font-weight: 550;
+      text-decoration: none;
+      border-bottom: 1px solid #9acbd7;
+      transition: 0.1s;
+    }
+    .intro-section a:hover {
+      border-bottom: 2px solid #0f4c5c;
+    }
+    .highlight-badge {
+      display: inline-block;
+      background: #d4edf2;
+      color: #0c4958;
+      padding: 2px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #e6f2f6;
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-bottom: 36px;
+    }
+    .faq-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0f4c5c;
+      margin-bottom: 16px;
+    }
+    .faq-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #c6dde5;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #1d5b6a;
+      margin-bottom: 4px;
+    }
+    .faq-a {
+      font-size: 0.95rem;
+      color: #2e4a55;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      text-align: center;
+      padding: 24px 0 16px;
+      border-top: 1px solid #cfe1e7;
+      margin-top: 16px;
+    }
+    .footer-links p {
+      font-size: 0.9rem;
+      color: #3b5c68;
+    }
+    .footer-links a {
+      color: #1a6c7c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 32px 16px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .grid-cards {
+        grid-template-columns: 1fr;
+      }
+      .intro-section {
+        padding: 20px 16px;
+      }
+      .faq-summary {
+        padding: 18px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- hero 区 -->
+  <div class="hero">
+    <h1>MK体育 · 运动信息站点</h1>
+    <div class="sub">聚合赛事动态、训练常识与运动文化，为爱好者提供可靠的内容参考。</div>
+    <div class="tagline">⚡ 真实 · 克制 · 运动视角</div>
+  </div>
+
+  <!-- 优势区：网格卡片 -->
+  <h2 class="section-title">站点特点</h2>
+  <div class="grid-cards">
+    <div class="card">
+      <h3><span>1</span>内容筛选</h3>
+      <p>围绕主流运动项目整理资讯，兼顾深度与可读性，避免碎片化无效信息。</p>
+    </div>
+    <div class="card">
+      <h3><span>2</span>可信说明</h3>
+      <p>每篇内容标注参考来源或更新日期，不编造数据，不渲染情绪。</p>
+    </div>
+    <div class="card">
+      <h3><span>3</span>场景化阅读</h3>
+      <p>无论赛前分析、训练笔记还是运动科普，都能快速找到对应板块。</p>
+    </div>
+    <div class="card">
+      <h3><span>4</span>持续迭代</h3>
+      <p>根据用户反馈与运动行业变化，定期优化栏目结构与表达方式。</p>
+    </div>
+  </div>
+
+  <!-- 说明区：站点介绍 + 可信说明 -->
+  <div class="intro-section">
+    <p><span class="highlight-badge">关于本站</span> <strong><a href="https://wapchina-mk.com">MK体育</a></strong> 是一个以运动信息整理与分享为核心的轻量平台。我们并不追求轰动性的标题，而是致力于让每位浏览者都能获得真实、有条理的内容。无论是职业赛事的数据回顾，还是大众健身的实用建议，站内内容均经过基础核实，避免以讹传讹。</p>
+    <p>从站点筹备至今，我们始终把「可信」作为第一原则。所有转载或编译内容均会注明出处，原创分析也明确标注作者与撰写日期。如果你对某个运动话题有更深入的兴趣，完全可以通过站内导航进入对应栏目继续了解。运动的世界很大，我们只做靠谱的翻译官和整理者。</p>
+    <p>另外，网站界面会持续根据访问习惯做调整，比如近期优化的卡片式布局与蓝绿色调，就是为了让阅读更舒适、层级更清晰。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-summary">
+    <h2>常见问题 · 摘要</h2>
+    <div class="faq-item">
+      <div class="faq-q">Q: 站内信息多久更新一次？</div>
+      <div class="faq-a">A: 主要栏目每周至少更新 2–3 次，重大赛事期间会适当增加频率。每篇内容末尾均标注最后修订时间。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q: 内容是否接受投稿或建议？</div>
+      <div class="faq-a">A: 目前暂未开放公开投稿，但欢迎通过站点底部联系方式反馈建议。所有采纳的修改意见都会在更新日志中致谢。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q: 移动端浏览体验如何？</div>
+      <div class="faq-a">A: 本站自始至终针对手机屏幕优化，卡片宽度、字体大小和点击区域均经过测试，无需频繁缩放。</div>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <p>了解更多运动相关内容，可访问 <a href="https://wapchina-mk.com">MK体育</a> 浏览全部分类。</p>
+    <p style="margin-top: 8px; font-size: 0.85rem; color: #5c7a85;">© 2025 · 信息站点 · 内容持续完善中</p>
+  </div>
+
+</div>
+</body>
+</html>
